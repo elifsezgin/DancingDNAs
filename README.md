@@ -26,14 +26,7 @@ In addition, this project will include:
 
 This app will consist of a single screen with game board, game controls, and nav links to the Github, my LinkedIn, and the Hint modal.  Game controls will include Start, Stop, and Reset buttons. The DNA molecules and their missing pieces will be randomly spread over the window. The DNA will have a double helix view with rotation.(3D view as a Bonus) Once a piece is approached to the matching DNA molecule, it will stop spinning and will stick if the sequences matches.
 
-
-#### Splash page
-
-<img src='http://res.cloudinary.com/datsbxfvs/image/upload/v1485122666/DNA_puzzle_splash_kblgdo.pdf' width='200px'/>
-
-#### Game page
-
-<img src='http://res.cloudinary.com/datsbxfvs/image/upload/v1485122678/Puzzle_vvpyu5.pdf' width='200px'/>
+[Wireframes](wireframes)
 
 ### Architecture and Technologies
 
