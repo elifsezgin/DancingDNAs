@@ -53,7 +53,7 @@ In addition to the webpack entry file, there will be three scripts involved in t
 
 **Day 2**: Dedicate this day to learning the `three.js` API.  First, build out the `DNA` object to connect to the `Puzzle` object.  Then, use `puzzle.js` to create and render at least the 'damaged DNA', and 'one standed DNA'.  Build in the ability to toggle the 'isMatched' state on dragging to right match for each 'one stranded DNA' and 'isComplete' state on match for each 'DNA'.  Goals for the day:
 
-- Complete the `cell.js` module (constructor, update functions)
+- Complete the `dna.js` and `strand.js` modules (constructor, update functions)
 - Render a 'damaged DNA' and 'one stranded DNA' to the `Canvas` using `three.js`
 - Make each 'one stranded DNA' draggable, toggling the state of the element and the 'damaged DNA' on match
 
@@ -61,7 +61,6 @@ In addition to the webpack entry file, there will be three scripts involved in t
 
 - Create puzzle object that holds levels with an increasing difficulty
 - Make 'DNA' elements responsive
-
 
 **Day 4**: Install the controls for the user to interact with the game.  Style the frontend, making it polished and professional.  Goals for the day:
 
