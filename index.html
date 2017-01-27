@@ -2,13 +2,15 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>DNA Puzzle</title>
+    <title>Dancing DNAs</title>
+    <rule from="^http://(csi|encrypted-tbn\d|fonts|g0|[\w-]+\.metric|ssl|t\d)\.
+gstatic\.com/" to="https://$1.gstatic.com/"/>
     <link rel='stylesheet' href='style.css'/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="./js/three.js"></script>
-    <script src="js/Detector.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.js"></script>
+    <script src="./js/Detector.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js"></script>
+    <script type=" text/javascript" src="https://code.jquery.com/jquery-2.1.1.js"></script>
     <script src="https://use.fontawesome.com/f57d82efb9.js"></script>
     <script src="./assets/bundle.js"></script>
   </head>
@@ -37,7 +39,7 @@
         </div>
 
       </ul>
-      <div class='modal' >Move your mouse around to make your DNA's dance! Hit Play to start!</div>
+      <div class='modal' >Move your mouse around to make your DNAs dance! Hit Play to start!</div>
       <canvas id="3d-canvas" width="100" height="100">
       </canvas>
 
