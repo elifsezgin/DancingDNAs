@@ -46,11 +46,15 @@
 
 	'use strict';
 	
-	var StageView = __webpack_require__(1).default;
+	var _stage_view = __webpack_require__(1);
+	
+	var _stage_view2 = _interopRequireDefault(_stage_view);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	$(function () {
 	  var root = $('.dna-puzzle');
-	  var view = new StageView(root);
+	  var view = new _stage_view2.default(root);
 	});
 
 /***/ },
@@ -67,10 +71,13 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var _stage = __webpack_require__(2);
 	
-	var Stage = __webpack_require__(2).default;
-	var shuffle = __webpack_require__(4);
+	var _stage2 = _interopRequireDefault(_stage);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var StageView = function () {
 	  function StageView($root) {
@@ -98,6 +105,8 @@
 	
 	    this.createHeaderButtons();
 	    this.setStage();
+	    this.$controls = $('.dg');
+	    this.$controls[1].style.display = 'none';
 	  }
 	
 	  _createClass(StageView, [{
@@ -108,7 +117,7 @@
 	      this.camera.position.z = 30;
 	
 	      var holders = [];
-	      var stage = new Stage(this.dnaCount, this.scene);
+	      var stage = new _stage2.default(this.dnaCount, this.scene);
 	
 	      var _stage$startGame = stage.startGame();
 	
@@ -129,8 +138,6 @@
 	      gui.add(view, 'zoom', 0, 20).onChange(function (value) {
 	        this.camera.position.z = value;
 	      });
-	
-	      holders = shuffle(holders);
 	
 	      window.addEventListener('mousemove', this.onMouseMove, false);
 	      window.addEventListener('resize', this.onWindowResize, false);
@@ -181,16 +188,19 @@
 	  }, {
 	    key: 'handleSwitch',
 	    value: function handleSwitch(e) {
+	      var $play = $('.play-pause');
 	      if (this.$audio[0].muted === false) {
 	        this.$audio[0].muted = true;
 	        this.factor = 0;
 	        this.$switch[0].children[0].remove();
 	        this.$switch.append(this.$play);
+	        $play[0].innerHTML = 'Play';
 	      } else {
 	        this.$audio[0].muted = false;
 	        this.factor = 0.5;
 	        this.$switch[0].children[0].remove();
 	        this.$switch.append(this.$pause);
+	        $play[0].innerHTML = 'Pause';
 	        if (this.isFirst) {
 	          this.toggleHelp(e);
 	          this.isFirst = false;
@@ -247,9 +257,13 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var _dna = __webpack_require__(3);
 	
-	var DNA = __webpack_require__(3).default;
+	var _dna2 = _interopRequireDefault(_dna);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var Stage = function () {
 	  function Stage(totalDNACount, scene) {
@@ -265,7 +279,7 @@
 	      var holder = void 0;
 	      var holders = [];
 	      for (var i = 1; i <= this.totalDNACount; i++) {
-	        var dnaCreater = new DNA(-40, 15, this.scene);
+	        var dnaCreater = new _dna2.default(-40, 15, this.scene);
 	
 	        var _dnaCreater$createDNA = dnaCreater.createDNA();
 	
@@ -381,15 +395,11 @@
 	
 	        dna.add(row);
 	      }
-	
 	      dna.position.y = this.positionY;
-	
 	      this.scene.add(dna);
-	
 	      dna.position.y = this.positionY;
 	      holder.add(dna);
 	      this.scene.add(holder);
-	
 	      return [holder, this.scene];
 	    }
 	  }]);
@@ -398,94 +408,6 @@
 	}();
 	
 	exports.default = DNA;
-
-/***/ },
-/* 4 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	/**
-	 * Randomize the order of the elements in a given array.
-	 * @param {Array} arr - The given array.
-	 * @param {Object} [options] - Optional configuration options.
-	 * @param {Boolean} [options.copy] - Sets if should return a shuffled copy of the given array. By default it's a falsy value.
-	 * @param {Function} [options.rng] - Specifies a custom random number generator.
-	 * @returns {Array}
-	 */
-	function shuffle(arr, options) {
-	
-	  if (!Array.isArray(arr)) {
-	    throw new Error('shuffle expect an array as parameter.');
-	  }
-	
-	  options = options || {};
-	
-	  var collection = arr,
-	      len = arr.length,
-	      rng = options.rng || Math.random,
-	      random,
-	      temp;
-	
-	  if (options.copy === true) {
-	    collection = arr.slice();
-	  }
-	
-	  while (len) {
-	    random = Math.floor(rng() * len);
-	    len -= 1;
-	    temp = collection[len];
-	    collection[len] = collection[random];
-	    collection[random] = temp;
-	  }
-	
-	  return collection;
-	};
-	
-	/**
-	 * Pick one or more random elements from the given array.
-	 * @param {Array} arr - The given array.
-	 * @param {Object} [options] - Optional configuration options.
-	 * @param {Number} [options.picks] - Specifies how many random elements you want to pick. By default it picks 1.
-	 * @param {Function} [options.rng] - Specifies a custom random number generator.
-	 * @returns {Object}
-	 */
-	shuffle.pick = function(arr, options) {
-	
-	  if (!Array.isArray(arr)) {
-	    throw new Error('shuffle.pick() expect an array as parameter.');
-	  }
-	
-	  options = options || {};
-	
-	  var rng = options.rng || Math.random,
-	      picks = options.picks || 1;
-	
-	  if (typeof picks === 'number' && picks !== 1) {
-	    var len = arr.length,
-	        collection = arr.slice(),
-	        random = [],
-	        index;
-	
-	    while (picks && len) {
-	      index = Math.floor(rng() * len);
-	      random.push(collection[index]);
-	      collection.splice(index, 1);
-	      len -= 1;
-	      picks -= 1;
-	    }
-	
-	    return random;
-	  }
-	
-	  return arr[Math.floor(rng() * arr.length)];
-	};
-	
-	/**
-	 * Expose
-	 */
-	module.exports = shuffle;
-
 
 /***/ }
 /******/ ]);

@@ -32,6 +32,13 @@ ul {
   color: #666666;
 }
 
+.credit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 12px;
+}
+
 #volume-off {
   color: #000000;
 }
