@@ -35,6 +35,8 @@ In addition to the webpack entry file, there are three scripts involved in this 
 
 `stage.js`: this lightweight script will house the constructor and startGame functions for creating all DNA objects, and returning the array of all the DNAs to the StageView.
 
+Credit for DNA model: chris-creditdesign
+
 ### Bonus features
 
 Some directions that the DancingDNAs may go are:
