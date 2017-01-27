@@ -54,6 +54,10 @@ ul {
   color: #33eee0;
 }
 
+#github {
+  color: #ff8da1;
+}
+
 #canvas {
   position: fixed;
   top: 5;

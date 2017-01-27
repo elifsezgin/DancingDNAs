@@ -71,7 +71,7 @@ In addition to the webpack entry file, there will be three scripts involved in t
 
 ### Bonus features
 
-Some directions that the DNApuzzle may go are:
+Some directions that the DancingDNAs may go are:
 
 - [ ] Add 3D effect to DNA molecules
 - [ ] Add more levels

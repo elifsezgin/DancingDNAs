@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/elifsezgin/DNApuzzle.git"
+    "url": "git+https://github.com/elifsezgin/DancingDNAs.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/elifsezgin/DNApuzzle/issues"
+    "url": "https://github.com/elifsezgin/DancingDNAs/issues"
   },
-  "homepage": "https://github.com/elifsezgin/DNApuzzle#readme",
+  "homepage": "https://github.com/elifsezgin/DancingDNAs#readme",
   "dependencies": {
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
