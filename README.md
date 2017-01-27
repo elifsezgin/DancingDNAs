@@ -1,4 +1,4 @@
-[dancingdnaslive]: http://elifsezgin.github.io/DancingDNAs/
+[dancingdnaslive]: https://elifsezgin.github.io/DancingDNAs/
 # DancingDNAs
 
 DancingDNAs is an extraordinary browser app in which DNA molecules are rotating with the mouse movements and the music in the background.
@@ -7,9 +7,9 @@ Technical details of the project are outlined in the **Functionality & MVP** and
 
 Feel free to browse at [DancingDNAs][dancingdnaslive]
 
-<img src='http://res.cloudinary.com/datsbxfvs/image/upload/v1485510548/Screen_Shot_2017-01-27_at_1.18.15_AM_bipypb.png' width='30%'/>
-<img src='http://res.cloudinary.com/datsbxfvs/image/upload/v1485510544/Screen_Shot_2017-01-27_at_1.16.46_AM_gebzzx.png' width='30%'/>
-<img src='http://res.cloudinary.com/datsbxfvs/image/upload/v1485510544/Screen_Shot_2017-01-27_at_1.17.47_AM_zgnpxd.png' width='30%'/>
+<img src='http://res.cloudinary.com/datsbxfvs/image/upload/v1485510548/Screen_Shot_2017-01-27_at_1.18.15_AM_bipypb.png' width='30%' height='300px'/>
+<img src='http://res.cloudinary.com/datsbxfvs/image/upload/v1485510544/Screen_Shot_2017-01-27_at_1.16.46_AM_gebzzx.png' width='30%' height='300px'/>
+<img src='http://res.cloudinary.com/datsbxfvs/image/upload/v1485510544/Screen_Shot_2017-01-27_at_1.17.47_AM_zgnpxd.png' width='30%' height='300px'/>
 
 ### Functionality & MVP  
 
