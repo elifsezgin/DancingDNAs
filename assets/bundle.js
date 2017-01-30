@@ -90,7 +90,7 @@
 	    this.scene = new THREE.Scene();
 	    this.camera = new THREE.PerspectiveCamera(150, window.innerWidth / window.innerHeight, 0.1, 1000);
 	    this.renderer = Detector.webgl ? new THREE.WebGLRenderer({ canvas: this.canvas, antialias: true }) : new THREE.CanvasRenderer();
-	    this.factor = 0;
+	    this.factor = 0.0;
 	    this.$audio = $("audio");
 	    this.$pause = $("<i class='fa fa-pause-circle' aria-hidden='true'></i>");
 	    this.isFirst = true;
@@ -141,7 +141,6 @@
 	
 	      window.addEventListener('mousemove', this.onMouseMove, false);
 	      window.addEventListener('resize', this.onWindowResize, false);
-	
 	      this.$switch.on('click', this.handleSwitch);
 	      this.$hint.on('click', this.toggleHelp);
 	      this.$plus.on('click', this.handleIncrease);
@@ -152,7 +151,11 @@
 	      var render = function render() {
 	        requestAnimationFrame(render);
 	        for (var i = 0; i < counter; i++) {
-	          holders[i].position.x = that.mouse.x * 30 * (i - counter / 2) * that.factor;
+	          var xFactor = 1;
+	          if (that.factor === 0 || that.factor === 2.7755575615628914e-17) {
+	            xFactor = 0;
+	          }
+	          holders[i].position.x = that.mouse.x * 30 * (i - counter / 2) * xFactor;
 	          holders[i].position.y = that.mouse.y * that.factor;
 	          holders[i].rotation.y += that.mouse.y * that.factor;
 	          that.renderer.render(that.scene, that.camera);
@@ -180,7 +183,7 @@
 	  }, {
 	    key: 'handleDecrease',
 	    value: function handleDecrease(e) {
-	      if (this.factor !== 0) {
+	      if (this.factor !== 0 && this.factor !== 2.7755575615628914e-17) {
 	        this.factor -= 0.1;
 	      }
 	      e.stopImmediatePropagation();
